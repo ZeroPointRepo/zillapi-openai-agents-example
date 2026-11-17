@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zillapi-openai-agents-example"
+version = "1.0.0"
+description = "Zillow property data (Zestimates, comps, listings) as OpenAI Agents SDK tools, powered by ZillAPI"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+keywords = ["zillow", "zillow-api", "zestimate", "real-estate", "openai-agents", "openai-agents-sdk", "function-calling", "ai-agents", "zillapi"]
+dependencies = ["openai-agents>=0.24", "httpx>=0.27"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[project.urls]
+Homepage = "https://zillapi.com"
+Documentation = "https://zillapi.com/docs"
+
+[tool.setuptools]
+packages = ["zillapi_agents"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
