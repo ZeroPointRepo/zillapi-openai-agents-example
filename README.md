@@ -32,7 +32,7 @@ The tools are plain async methods on `ZillapiTools`, so you can also call them d
 Notes that matter for agents:
 
 - **Search needs a bounding box.** ZillAPI does not accept a bare city name for search. The tool docstring tells the model to estimate the bbox itself, for example Austin, TX is roughly `west=-97.94, south=30.10, east=-97.56, north=30.52`.
-- **Property lookups are projected** with `?fields=` so the model gets about 15 useful fields instead of the full 300+ field record. Edit `PROPERTY_FIELDS` in `zillapi_agents/tools.py` to add price history, schools, agent contact and more.
+- **Property lookups are projected** with `?fields=` so the model gets about 15 useful fields instead of the full 200+ field record. Edit `PROPERTY_FIELDS` in `zillapi_agents/tools.py` to add price history, schools, agent contact and more.
 - **Tool output is compact JSON**, and API errors come back as `{"error": {"code", "message"}}` so the agent can explain or retry. 429 and 5xx responses are retried with backoff.
 - Search rows do not always include a Zestimate. The agent instructions tell the model to call `get_zestimate` for those rows.
 
